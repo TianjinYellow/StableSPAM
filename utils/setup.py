@@ -18,7 +18,7 @@ from .fake_quantization import QLinear, prepare_model_for_int8_training_simulati
 from .quantization import QScaleLinear, prepare_model_for_int8_training
 from .act_weight_quantization import prepare_model_for_int8_training_simulation_act_weight
 from .act_weight_fp4 import prepare_model_for_fp4_training_simulation_act_weight
-
+from .real_fp4_quantization import prepare_model_for_real_fp4_training_simulation_act_weight
 
 def getting_svd_cnt(optimizer):
     svd_cnt = 0
@@ -68,6 +68,13 @@ def setup_model(args):
         logger.info('--'*20)
         logger.info('Prepare Model for Activation&Weight FP4 Training')
         logger.info('--'*20)
+    if args.real_fp4:
+        print('Real FP4 training')
+        target_module = ['q_proj', 'k_proj', 'v_proj', 'o_proj', 'up_proj', 'down_proj', 'gate_proj']
+        module = prepare_model_for_real_fp4_training_simulation_act_weight(model,args,target_module)
+        logger.info('--'*20)
+        logger.info('Prepare Model for Real FP4 Training')
+        logger.info('--'*20)   
 
     return model_config, model
 
