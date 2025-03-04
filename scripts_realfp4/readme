@@ -1,0 +1,11 @@
+python version 3.11.10 would work fine.
+
+the cuda & triton environment should be as follow: 
+https://github.com/triton-lang/triton
+please strictly follow triton environment setup in this website
+
+CUDA 12.8 should be installed
+
+use real_fp4_350m.sh to run 
+
+there should be some bugs to be fixed, in file ./utils/real_fp4_quantization.py

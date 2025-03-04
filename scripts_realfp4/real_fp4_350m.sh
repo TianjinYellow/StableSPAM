@@ -1,8 +1,3 @@
-
-
-source activate spam
-cd ..
-
 torchrun --standalone --nproc_per_node 4 main_pretrain.py \
     --model_config configs/llama_350m.json \
     --eval_every 1000 \
