@@ -79,6 +79,7 @@ def parse_args(args):
     parser.add_argument('--act_topk', type=int, default=2)
     parser.add_argument('--act_stochastic', action='store_true')
     parser.add_argument('--fp4', action = 'store_true')
+    parser.add_argument('--real_fp4', action = 'store_true')
     
     #stablespam
     parser.add_argument("--gamma1", type=float, default=0.85) # beta1 for Adafactor, GaLore_adafactor, (Q-)GaLore-adam or SGD
