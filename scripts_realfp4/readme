@@ -1,6 +1,7 @@
 python version 3.11.10 would work fine.
 
 the cuda & triton environment should be as follow: 
+to enable blackwell support
 https://github.com/triton-lang/triton
 please strictly follow triton environment setup in this website
 
