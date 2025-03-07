@@ -89,7 +89,7 @@ def fp4_dequantization_all(scale, packed, x_packed_shape):
     unpack = scale * unpack
     return unpack
 
-class A8Linear(torch.autograd.Function):
+class FP4Linear(torch.autograd.Function):
     @staticmethod
     def forward(ctx, x: Tensor, weight: Tensor, bias: Tensor,configs):
         # ---- debug
@@ -179,7 +179,7 @@ class real_fp4linear(nn.Module):
             "VEC_SIZE": 16,       # nvfp4
         }
     def forward(self, input:Tensor) -> Tensor:
-        return A8Linear.apply(input, self.weight, self.bias, self.configs)
+        return FP4Linear.apply(input, self.weight, self.bias, self.configs)
 
 
 def prepare_model_for_real_fp4_training_simulation_act_weight(model, args, target_module):
