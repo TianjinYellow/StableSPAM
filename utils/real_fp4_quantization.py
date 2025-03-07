@@ -159,9 +159,9 @@ class real_fp4linear(nn.Module):
         self.group_size = group_size
         self.stochastic_round = stochastic_round
         
-        self.weight = nn.Parameter(torch.empty((out_features, in_features), dtype=torch.uint8, device=device))
+        self.weight = nn.Parameter(torch.empty((out_features, in_features), dtype=torch.float32, device=device))
         if bias:
-            self.bias = nn.Parameter(torch.empty(out_features, dtype=torch.float16, device=device))
+            self.bias = nn.Parameter(torch.empty(out_features, dtype=torch.float32, device=device))
         else:
             self.register_parameter('bias', None)
         
