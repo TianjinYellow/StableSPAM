@@ -1,3 +1,17 @@
+#!/bin/bash
+#SBATCH --partition=gpu_h100
+#SBATCH --gpus=4
+#SBATCH --job-name=real_fp4
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --time=15:00:00
+#SBATCH --output=./logs/real_fp4.out
+
+# module purge
+# module load 2023
+
+source activate spam
+
 torchrun --standalone --nproc_per_node 4 main_pretrain.py \
     --model_config configs/llama_350m.json \
     --eval_every 1000 \
