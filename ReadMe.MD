@@ -21,7 +21,7 @@ we propose Stable-SPAM, which incorporates enhanced gradient normalization and c
 
 This paper comprehensively evaluates several recently proposed optimizers for 4-bit training, revealing that low-bit precision amplifies sensitivity to learning rates and often causes unstable gradient norms, leading to divergence at higher learning rates. Among these, SPAM, a recent optimizer featuring momentum reset and spike-aware gradient clipping, achieves the best performance across various bit levels, but struggles to stabilize gradient norms, requiring careful learning rate tuning. To address these limitations, we propose **Stable-SPAM**, which incorporates enhanced gradient normalization and clipping techniques. In particular, **Stable-SPAM** (1) adaptively updates the clipping threshold for spiked gradients by tracking their historical maxima; $(2)$ normalizes the entire gradient matrix based on its historical l_2-norm statistics; and (3) inherits momentum reset from SPAM to periodically reset the first and second moments of Adam, mitigating the accumulation of spiked gradients. Extensive experiments show that **Stable-SPAM** effectively stabilizes gradient norms in 4-bit LLM training, delivering superior performance compared to Adam and SPAM. Notably, our 4-bit LLaMA-1B model trained with **Stable-SPAM** outperforms the BF16 LLaMA-1B trained with Adam by up to $2$ perplexity. Furthermore, when both models are trained in 4-bit, \texttt{Stable-SPAM} achieves the same loss as Adam while requiring only about half the training steps.
 
-# [GradientStabilizer code:](https://github.com/TianjinYellow/GradientStabilizer)
+# [GradientStabilizer code](https://github.com/TianjinYellow/GradientStabilizer)
 
 ### TODO
 
